@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    <form method="POST" id="trans-form" class="uk-grid-small" uk-grid style="margin: auto; width: 50%;">
+        {% csrf_token %}
+        <div class="uk-width-1-2@s">
+           <label class="uk-form-label" style="font-size: medium;">Original - </label>
+            {{ lang | title }}
+            <textarea class="uk-textarea" rows="5" type="text" name="original" placeholder="Enter something you want to translate">{{ original }}</textarea>
+        </div>
+        <div class="uk-width-1-2@s">
+           <label class="uk-form-label" style="font-size: medium;">Translation</label>
+            {{ form.language }}
+           <textarea class="uk-textarea" rows="5" type="text" name="translation" placeholder="Translation" readonly>{{ translation }}</textarea>
+        </div>
+        <input class="uk-button uk-button-default" type="submit" value="Translate" style="margin: auto; margin-top: 20px;" />
+    </form>
+
+{% endblock %}
